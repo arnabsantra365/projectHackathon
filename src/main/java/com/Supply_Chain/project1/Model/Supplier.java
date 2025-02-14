@@ -1,13 +1,18 @@
+
 package com.Supply_Chain.project1.Model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-@Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+
 @Table(name = "suppliers")
 public class Supplier {
     @Id
