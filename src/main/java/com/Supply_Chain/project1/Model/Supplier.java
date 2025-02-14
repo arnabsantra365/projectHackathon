@@ -1,5 +1,6 @@
 package com.Supply_Chain.project1.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,6 +20,7 @@ public class Supplier {
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Product> products;
 
     @PrePersist

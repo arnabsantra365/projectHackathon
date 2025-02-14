@@ -1,5 +1,6 @@
 package com.Supply_Chain.project1.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +17,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "supplier_id", nullable = false)
+    @JsonBackReference
     private Supplier supplier;
 
     // Getters and Setters
