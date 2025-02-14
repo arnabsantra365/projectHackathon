@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,8 +22,7 @@ public class Order {
     @JoinColumn(name = "supplier_id", nullable = false)
     private Supplier supplier;
 
-    @Enumerated(EnumType.STRING)
-    private OrderStatus status;
+    private String status;
 
     private LocalDateTime createdAt;
 
@@ -73,11 +73,11 @@ public class Order {
         this.supplier = supplier;
     }
 
-    public OrderStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(OrderStatus status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -87,5 +87,11 @@ public class Order {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public void setCustomerName(String customerName) {
+    }
+
+    public void setProductId(Long productId) {
     }
 }
