@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/suppliers")
+@RequestMapping("/api/suppliers")
 public class SupplierController {
     @Autowired
     private SupplierServices supplierServices;
-    @PostMapping("/")
+
+    @PostMapping("/register")
     public ResponseEntity<Supplier> registerSupplier(@RequestBody Supplier supplier) {
         Supplier savedSupplier = supplierServices.registerSupplier(supplier);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedSupplier);
@@ -26,7 +27,7 @@ public class SupplierController {
         return ResponseEntity.ok(supplier);
     }
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<Supplier>> getAllSuppliers() {
         List<Supplier> suppliers = supplierServices.getAllSuppliers();
         return ResponseEntity.ok(suppliers);
